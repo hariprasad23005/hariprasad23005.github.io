@@ -1,20 +1,23 @@
-// PAGE SWITCH
-function showPage(id,btn){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
+function showPage(pageId, btn) {
 
-  document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
+    // Hide all pages
+    document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+    });
+
+    // Show selected page
+    document.getElementById(pageId).classList.add('active');
+
+    // Remove active from all buttons
+    document.querySelectorAll('.nav button').forEach(button => {
+        button.classList.remove('active');
+    });
+
+    // Highlight clicked button
+    btn.classList.add('active');
 }
 
-// CURSOR
-const cursor=document.getElementById('cursor');
-document.addEventListener('mousemove',e=>{
-  cursor.style.left=e.pageX+'px';
-  cursor.style.top=e.pageY+'px';
-});
-
-// DOWNLOAD RESUME
-function downloadResume(){
-  window.open("portfolio_template.pdf");
+// Resume button
+function downloadResume() {
+    window.open("portfolio_template.pdf", "_blank");
 }
